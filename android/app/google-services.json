@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "346528768148",
+    "project_id": "login-c720a",
+    "storage_bucket": "login-c720a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:346528768148:android:f9b8dad57642c776e11481",
+        "android_client_info": {
+          "package_name": "com.example.login_google"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "346528768148-mbqkheuli21g5b57gbarjsjhudjrfl79.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.login_google",
+            "certificate_hash": "762ae7e9cab15e6a32616d7a87bd3762a90f1d15"
+          }
+        },
+        {
+          "client_id": "346528768148-deuaiq4nftvc98b5ji5hpdgqa8shpgj2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOnLse-ExO8Q1Ra6FysqpNd0b6m_QLQM0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "346528768148-deuaiq4nftvc98b5ji5hpdgqa8shpgj2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
