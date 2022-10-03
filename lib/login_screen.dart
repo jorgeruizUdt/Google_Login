@@ -22,28 +22,44 @@ class LoginScreenState extends State<LoginScreen> {
         backgroundColor: Colors.green,
       ),
       body: Container(
+        alignment: Alignment.center,
         width: size.width,
         height: size.height,
-        padding: EdgeInsets.only(
-          left: 20,
-          right: 20,
-          top: size.height * .2,
-          bottom: size.height * .5
-        ),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(
-              "Google sign in",
-              style: TextStyle(fontSize: 30)
-            ),
-            GestureDetector(
-              onTap: () {
-                AuthService().singInWithGoogle();
-              },
-              child: const Text("Google")
-            )
+            ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.white,
+                ),
+                onPressed: () {
+                  AuthService().signInWithGoogle();
+                },
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(0, 8, 0, 8),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const [
+                      Image(
+                        image: AssetImage("assets/google_c.png"),
+                        height: 18.0,
+                        width: 24,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(left: 20, right: 8),
+                        child: Text(
+                          'Sign in with Google',
+                          style: TextStyle(
+                            fontSize: 15,
+                            color: Color.fromARGB(150, 20, 20, 20),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
           ],
         ),
       ),

@@ -24,7 +24,7 @@ class AuthService{
     );
   }
 
-  singInWithGoogle() async {
+  signInWithGoogle() async {
     // final GoogleSignInAccount? googleUser = await GoogleSignIn(scopes: <String>["email"]).signIn();
     final GoogleSignInAccount? googleUser = await _googleSignIn.signIn();
     final GoogleSignInAuthentication? googleAuth = await googleUser?.authentication;
@@ -36,7 +36,7 @@ class AuthService{
     return await _firebaseAuth.signInWithCredential(credential);
   }
 
-  singOut() async {
+  signOut() async {
     await _firebaseAuth.signOut();
     await _googleSignIn.signOut();
   }

@@ -44,7 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
               color: Colors.green,
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
               onPressed: () {
-                AuthService().singOut(); 
+                AuthService().signOut(); 
                 },
               child: const Text(
                 "Log out",
