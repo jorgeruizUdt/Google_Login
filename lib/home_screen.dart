@@ -20,6 +20,18 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            const SizedBox( //Es para el espaciado debajo de ella
+              height: 50,
+            ),
+            CircleAvatar(
+                radius: 40,
+                child: ClipOval(
+                    child: Image.network(_firebaseAuth.currentUser!.photoURL!),
+                ),
+            ),
+            const SizedBox( //Es para el espaciado debajo de ella
+              height: 50,
+            ),
             Text(_firebaseAuth.currentUser!.displayName!,
               style: const TextStyle(
                 fontSize: 30,
@@ -31,25 +43,26 @@ class _HomeScreenState extends State<HomeScreen> {
             Text(
               _firebaseAuth.currentUser!.email!,
               style: const TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
+                fontSize: 15,
+                fontWeight: FontWeight.normal,
                 color: Colors.black87,
               ),
             ),
             const SizedBox(
               height: 30,
             ),
-            MaterialButton(
-              padding: const EdgeInsets.all(10),
-              color: Colors.green,
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
+            const Spacer(),
+            TextButton(
               onPressed: () {
                 AuthService().signOut(); 
-                },
+              },
               child: const Text(
                 "Log out",
-                style: TextStyle(color: Colors.white, fontSize: 15),
+                style: TextStyle(color: Colors.red, fontSize: 15),
               ),
+            ),
+            const SizedBox(
+              height: 15,
             ),
           ],
         ),
