@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:login_google/home_screen.dart';
 
 import 'Service/auth_service.dart';
 
@@ -32,8 +33,9 @@ class LoginScreenState extends State<LoginScreen> {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.white,
                 ),
-                onPressed: () {
-                  AuthService().signInWithGoogle();
+                onPressed: () async {
+                  Future<bool> isLoggedIn = AuthService().signInWithGoogle();
+                  if (await isLoggedIn) Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=> HomeScreen()));
                 },
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(0, 8, 0, 8),
