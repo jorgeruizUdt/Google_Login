@@ -54,7 +54,7 @@ class AuthService{
     await _googleSignIn.signOut();
   }
 
-  getAdvertisingID() async {
+  Future<String?> getAdvertisingID() async {
     String? advertisingId;
     bool? isLimitAdTrackingEnabled;
 
@@ -69,13 +69,10 @@ class AuthService{
     } on PlatformException {
       isLimitAdTrackingEnabled = false;
     }
+  
+    log('Advertiser ID: $advertisingId');
 
-    _advertisingID = advertisingId;
-    _isLimitAdTrackingEnabled = isLimitAdTrackingEnabled;
-    
-    log('Advertiser ID: $_advertisingID!');
-
-    return _advertisingID;
+    return AdvertisingId.id(true);
   }
 
 }

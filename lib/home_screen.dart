@@ -11,6 +11,20 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   //final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
+  String? caption;
+
+  Future<void> retrieve() async {
+    Future<String?> gaid = AuthService().getAdvertisingID();
+    String? result = await gaid;
+
+    setState(() => caption = result);
+  }
+
+  @override 
+    initState() {
+      super.initState();
+      retrieve();
+    }
 
   @override
   Widget build(BuildContext context){
@@ -22,9 +36,9 @@ class _HomeScreenState extends State<HomeScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const SizedBox(
-              height: 50,
+              height: 300,
             ),
-            Text('Advertising ID: + ${AuthService().getAdvertisingID()}'),
+            Text('Advertising ID: $caption'),
             const SizedBox(
               height: 50,
             ),
