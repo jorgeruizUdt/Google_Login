@@ -4,6 +4,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:login_google/login_screen.dart';
 import 'Service/auth_service.dart';
 
+import 'dart:io' show Platform;
+
 class HomeScreen extends StatefulWidget {
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -38,7 +40,8 @@ class _HomeScreenState extends State<HomeScreen> {
             const SizedBox(
               height: 300,
             ),
-            Text('Advertising ID: $caption'),
+            if(Platform.isAndroid) Text('Advertising ID: $caption')
+            else const Text("Advertising ID is only available in Android devices"),
             const SizedBox(
               height: 50,
             ),
