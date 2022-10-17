@@ -1,30 +1,30 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:login_google/login_screen.dart';
 import 'package:login_google/home_screen.dart';
+// Externas
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 
 class AuthService{
-  final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
+  //final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
   final GoogleSignIn _googleSignIn = GoogleSignIn(scopes: <String>["email"]);
   
-  handleAuthState() {
-    return StreamBuilder(
-      //stream: _firebaseAuth.authStateChanges(),
-      stream: _googleSignIn.onCurrentUserChanged,
-      builder: (BuildContext context, snapshot) {
-        if (snapshot.hasData){
-          return HomeScreen();
-        } else {
-          return const LoginScreen();
-        }
-      }
-    );
-  }
+  // handleAuthState() {
+  //   return StreamBuilder(
+  //     //stream: _firebaseAuth.authStateChanges(),
+  //     stream: _googleSignIn.onCurrentUserChanged,
+  //     builder: (BuildContext context, snapshot) {
+  //       if (snapshot.hasData){
+  //         return HomeScreen();
+  //       } else {
+  //         return const LoginScreen();
+  //       }
+  //     }
+  //   );
+  // }
 
   Future<bool> signInWithGoogle() async {
     try {

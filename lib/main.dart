@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:login_google/login_screen.dart';
 
 import 'Service/auth_service.dart';
 
@@ -14,10 +15,12 @@ class GoogleLoginApp extends StatelessWidget{
 
   @override
   Widget build(BuildContext context){
-    return MaterialApp(
+    // return MaterialApp(
+    return const MaterialApp(
       themeMode: ThemeMode.system,
       debugShowCheckedModeBanner: false,
-      home: AuthService().handleAuthState(),
+      home: LoginScreen(),
+      // home: AuthService.handleAuthState(),
     );
   }
 }
