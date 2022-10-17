@@ -1,16 +1,21 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/services.dart';
+
 import 'package:login_google/login_screen.dart';
 import 'package:login_google/home_screen.dart';
 // Externas
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:advertising_id/advertising_id.dart';
 
 
 class AuthService{
   //final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
   final GoogleSignIn _googleSignIn = GoogleSignIn(scopes: <String>["email"]);
+  String? _advertisingID;
+  bool? _isLimitAdTrackingEnabled; 
   
   // handleAuthState() {
   //   return StreamBuilder(
@@ -36,6 +41,7 @@ class AuthService{
       );
 
       log(googleUser.toString());
+
       return _googleSignIn.isSignedIn();
       //return await _firebaseAuth.signInWithCredential(credential);
     } catch (_) {
@@ -47,4 +53,29 @@ class AuthService{
     //await _firebaseAuth.signOut();
     await _googleSignIn.signOut();
   }
+
+  getAdvertisingID() async {
+    String? advertisingId;
+    bool? isLimitAdTrackingEnabled;
+
+    try {
+      advertisingId = await AdvertisingId.id(true);
+    } on PlatformException {
+      advertisingId = 'Platform fail';
+    }
+
+    try {
+      isLimitAdTrackingEnabled = await AdvertisingId.isLimitAdTrackingEnabled;
+    } on PlatformException {
+      isLimitAdTrackingEnabled = false;
+    }
+
+    _advertisingID = advertisingId;
+    _isLimitAdTrackingEnabled = isLimitAdTrackingEnabled;
+    
+    log('Advertiser ID: $_advertisingID!');
+
+    return _advertisingID;
+  }
+
 }

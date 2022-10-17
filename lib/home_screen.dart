@@ -21,11 +21,12 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const SizedBox( //Es para el espaciado debajo de ella
+            const SizedBox(
               height: 50,
             ),
+            Text('Advertising ID: + ${AuthService().getAdvertisingID()}'),
             const SizedBox(
-              height: 30,
+              height: 50,
             ),
             const Spacer(),
             TextButton(
