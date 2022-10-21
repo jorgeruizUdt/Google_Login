@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -40,7 +41,8 @@ class _HomeScreenState extends State<HomeScreen> {
             const SizedBox(
               height: 300,
             ),
-            if(Platform.isAndroid) Text('Advertising ID: $caption')
+            if (kIsWeb) const Text("Advertising ID is only available in Android devices")
+            else if(Platform.isAndroid) Text('Advertising ID: $caption')
             else const Text("Advertising ID is only available in Android devices"),
             const SizedBox(
               height: 50,

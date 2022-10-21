@@ -13,7 +13,7 @@ import 'package:advertising_id/advertising_id.dart';
 
 class AuthService{
   //final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
-  final GoogleSignIn _googleSignIn = GoogleSignIn(scopes: <String>["email", "https://googleapis.com/auth/contacts.readonly"]);
+  final GoogleSignIn _googleSignIn = GoogleSignIn(scopes: <String>["email"]);
   String? _advertisingID;
   bool? _isLimitAdTrackingEnabled; 
   
