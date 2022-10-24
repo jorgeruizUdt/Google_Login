@@ -17,10 +17,12 @@ class _HomeScreenState extends State<HomeScreen> {
   String? caption;
 
   Future<void> retrieve() async {
-    Future<String?> gaid = AuthService().getAdvertisingID();
-    String? result = await gaid;
+    if (Platform.isAndroid){
+      Future<String?> gaid = AuthService().getAdvertisingID();
+      String? result = await gaid;
 
-    setState(() => caption = result);
+      setState(() => caption = result);
+    }
   }
 
   @override 
